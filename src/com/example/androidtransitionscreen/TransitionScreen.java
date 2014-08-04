@@ -1,9 +1,10 @@
 package com.example.androidtransitionscreen;
 
-import android.support.v7.app.ActionBarActivity;
+//import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,7 +13,8 @@ import android.widget.Button;
 
 
 public class TransitionScreen extends Activity implements OnClickListener{
-
+	protected static final String CATEGORIA = "lifetime";
+	
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -25,16 +27,60 @@ public class TransitionScreen extends Activity implements OnClickListener{
         b.setText("Click aqui");
         b.setOnClickListener(this);
         setContentView(b);
+        
     }
 
 
 	@Override
 	public void onClick(View v) {
 		Intent it= new Intent(this, SecondScreen.class);
-		startActivity(it);
-		
+		// Send parameters
+		Bundle params = new Bundle();
+		params.putString("msg", "Hello");
+		it.putExtra(null, params);
+				
+		startActivity(it);	
 	
 	}
+	
+	protected void onStart(){
+    	super.onStart();
+    	Log.i(CATEGORIA, getClassName() + ".onStart() executed.");
+    	
+    }
+    
+    protected void onRestart(){
+    	super.onRestart();
+    	Log.i(CATEGORIA, getClassName() + ".onRestart() executed.");
+    }
+
+    protected void onResume(){
+    	super.onResume();
+    	Log.i(CATEGORIA, getClassName() + ".on Resume() executed.");
+    }
+    
+    protected void onPause(){
+    	super.onPause();
+    	Log.i(CATEGORIA, getClassName() + ".onPause executed.");
+    }
+    
+    protected void onStop(){
+    	super.onStop();
+    	Log.i(CATEGORIA, getClassName() + ".onStop() executed.");
+    }
+    
+    protected void onDestroy(){
+    	super.onDestroy();
+    	Log.i(CATEGORIA, getClassName() + ".onDestroy() executed.");
+    }
+    
+
+    private String getClassName() {
+		String name = getClass().getName();
+		return name.substring(name.lastIndexOf("."));
+	}
+
+
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

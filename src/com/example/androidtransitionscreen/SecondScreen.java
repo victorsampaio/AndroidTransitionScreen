@@ -1,16 +1,30 @@
 package com.example.androidtransitionscreen;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
-public class SecondScreen extends ActionBarActivity {
+public class SecondScreen extends Activity {
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_second_screen);
+	protected void onCreate(Bundle icicle) {
+		super.onCreate(icicle);
+		//setContentView(R.layout.activity_second_screen);
+		TextView view = new TextView(this);
+		view.setText("Second Screen Text");
+		setContentView(view);
+		
+		Intent it = getIntent();
+		if(it != null){
+			Bundle params= it.getExtras();
+			if(params!= null ){
+				String msg = params.getString("msg");
+				
+			}
+		}	
 	}
 
 	@Override
