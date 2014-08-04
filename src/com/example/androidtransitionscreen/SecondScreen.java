@@ -3,28 +3,41 @@ package com.example.androidtransitionscreen;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 public class SecondScreen extends Activity {
 
+	protected static final String CATEGORY = "info";
 	@Override
 	protected void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
-		//setContentView(R.layout.activity_second_screen);
-		TextView view = new TextView(this);
-		view.setText("Second Screen Text");
-		setContentView(view);
+		setContentView(R.layout.activity_second_screen);
 		
+		// Show message using TextView
+		//TextView view = new TextView(this);
+		//view.setText("Second Screen Text");
+		//setContentView(view);
+		
+		
+		// Get parameters using Bundle
 		Intent it = getIntent();
 		if(it != null){
 			Bundle params= it.getExtras();
 			if(params!= null ){
 				String msg = params.getString("msg");
+				Log.i(CATEGORY,"Menssage1: " + msg);
 				
 			}
 		}	
+		
+		// Get parameters using Intent
+		if (it != null){
+			String msg2 = it.getStringExtra("msg2");
+			Log.i(CATEGORY, "Menssage 2: " + msg2);
+		}
 	}
 
 	@Override

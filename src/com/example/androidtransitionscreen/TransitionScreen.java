@@ -30,15 +30,19 @@ public class TransitionScreen extends Activity implements OnClickListener{
         
     }
 
-
 	@Override
 	public void onClick(View v) {
+	
+		// Send parameters using Bundle
 		Intent it= new Intent(this, SecondScreen.class);
-		// Send parameters
 		Bundle params = new Bundle();
-		params.putString("msg", "Hello");
-		it.putExtra(null, params);
-				
+		params.putString("msg", "Hello - Bundle");
+		it.putExtras(params);
+		
+		
+		// Send parameters using Intent
+		//Intent it2 = new Intent(this, SecondScreen.class);
+		it.putExtra("msg2", "Hello - Intent");
 		startActivity(it);	
 	
 	}
