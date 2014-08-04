@@ -20,15 +20,14 @@ public class SecondScreen extends Activity {
 		//TextView view = new TextView(this);
 		//view.setText("Second Screen Text");
 		//setContentView(view);
-		
-		
+				
 		// Get parameters using Bundle
 		Intent it = getIntent();
 		if(it != null){
 			Bundle params= it.getExtras();
 			if(params!= null ){
 				String msg = params.getString("msg");
-				Log.i(CATEGORY,"Menssage1: " + msg);
+				Log.i(CATEGORY,"Menssage 1: " + msg);
 				
 			}
 		}	

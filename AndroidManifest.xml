@@ -26,6 +26,10 @@
             android:name=".SecondScreen"
             android:label="@string/title_activity_second_screen" >
         </activity>
+        <activity
+            android:name=".ExampleListActivity"
+            android:label="@string/title_activity_example_list" >
+        </activity>
     </application>
 
 </manifest>
