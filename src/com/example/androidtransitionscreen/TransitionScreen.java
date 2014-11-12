@@ -20,8 +20,8 @@ public class TransitionScreen extends Activity implements OnClickListener{
         super.onCreate(icicle);
         setContentView(R.layout.activity_transition_screen);
         
-        //Button nextScreen;
-        //nextScreen = (Button)findViewById(R.id.buttonNext);
+      //  Button nextScreen;
+      //  nextScreen = (Button)findViewById(R.id.buttonNext);
         
         Button b = new Button(this);
         b.setText("Click aqui");
@@ -33,11 +33,11 @@ public class TransitionScreen extends Activity implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 	
-		// Send parameters using Bundle
 		Intent it= new Intent(this, SecondScreen.class);
 		Bundle params = new Bundle();
 		params.putString("msg", "Hello - Bundle");
 		it.putExtras(params);
+		// Send parameters using Bundle
 		
 		
 		// Send parameters using Intent
